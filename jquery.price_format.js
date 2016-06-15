@@ -196,13 +196,17 @@
 
 			}
 
+                        function is_zero(value) {
+                                return (value === ('0'+centsSeparator+'0') || value === ('0'+centsSeparator) || value === '0' || value === '');
+                        }
+
 			// Formatted price as a value
 			function price_it ()
 			{
 				var str = get();
 				var price = price_format(str);
 				if (str != price) set(price);
-				if(price == price_format('0', true) && clearOnEmpty) set('');
+				if(is_zero(str) && price == price_format('0', true) && clearOnEmpty) set('');
 			}
 
 			// Add prefix on focus
@@ -239,7 +243,7 @@
 			// bind the actions
 			obj.bind('keydown.price_format', key_check);
 			obj.bind('keyup.price_format', price_it);
-			obj.bind('focusout.price_format', price_it);
+			// obj.bind('focusout.price_format', price_it);
 
 			// Clear Prefix and Add Prefix
 			if(clearPrefix)
