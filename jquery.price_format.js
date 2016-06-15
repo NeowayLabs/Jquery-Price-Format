@@ -239,7 +239,7 @@
 			// bind the actions
 			obj.bind('keydown.price_format', key_check);
 			obj.bind('keyup.price_format', price_it);
-			// obj.bind('focusout.price_format', price_it);
+			obj.bind('focusout.price_format', price_it);
 
 			// Clear Prefix and Add Prefix
 			if(clearPrefix)
