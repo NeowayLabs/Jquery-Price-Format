@@ -196,17 +196,13 @@
 
 			}
 
-                        function is_zero(value) {
-                                return (value === ('0'+centsSeparator+'0') || value === ('0'+centsSeparator) || value === '0' || value === '');
-                        }
-
 			// Formatted price as a value
 			function price_it ()
 			{
 				var str = get();
 				var price = price_format(str);
 				if (str != price) set(price);
-				if(is_zero(str) && price == price_format('0', true) && clearOnEmpty) set('');
+				if(str === ('0'+centsSeparator+'0') && price == price_format('0', true) && clearOnEmpty) set('');
 			}
 
 			// Add prefix on focus
